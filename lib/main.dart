@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practise/button_pages.dart';
 import 'package:flutter_practise/home.dart';
 import 'package:flutter_practise/contact_list.dart';
+import 'package:flutter_practise/j_listview.dart';
+import 'package:flutter_practise/json_api.dart';
 
 void main() {
   runApp(
@@ -194,6 +196,49 @@ class Homepage extends StatelessWidget {
                       _longtext +
                       _longtext),
                 )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 30,
+                ),
+                Container(
+                  child: RaisedButton(
+                      child: Text("Local Json"),
+                      color: Colors.redAccent,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => j_listview()));
+                      }),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  child: RaisedButton(
+                      child: Text("Json APi data"),
+                      color: Colors.redAccent,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => jsonapii()));
+                      }),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  child: RaisedButton(
+                      child: Text("Local Json"),
+                      color: Colors.redAccent,
+                      textColor: Colors.white,
+                      onPressed: () {}),
+                ),
               ],
             ),
           ),
