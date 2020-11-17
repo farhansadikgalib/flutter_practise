@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practise/button_pages.dart';
 import 'package:flutter_practise/home.dart';
 import 'package:flutter_practise/contact_list.dart';
-import 'package:flutter_practise/j_listview.dart';
+import 'package:flutter_practise/local_json_listview.dart';
 import 'package:flutter_practise/json_api.dart';
 
 void main() {

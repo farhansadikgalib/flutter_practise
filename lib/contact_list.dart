@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practise/data_pass.dart';
 
 // ignore: camel_case_types
 class contact_list extends StatelessWidget {
-  List contacts = [
+  final List contacts_people = [
     {
       "name": "farhan",
       "phone": "01773076754",
@@ -92,18 +93,23 @@ class contact_list extends StatelessWidget {
         title: Text('Contact List'),
       ),
       body: ListView.builder(
-        itemCount: contacts.length,
+        itemCount: contacts_people.length,
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Column(
               children: <Widget>[
                 ListTile(
                   leading: CircleAvatar(
-                    child: Text(contacts[index]["name"][0]),
+                    child: Text(contacts_people[index]["name"][0]),
                   ),
-                  title: Text(contacts[index]["name"]),
-                  subtitle: Text(contacts[index]["phone"]),
-                  onTap: () {},
+                  title: Text(contacts_people[index]["name"]),
+                  subtitle: Text(contacts_people[index]["phone"]),
+                  onTap: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) =>
+                            local_data_pass(contacts_people[index]));
+                    Navigator.push(context, route);
+                  },
                 )
               ],
             ),
