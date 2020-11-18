@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practise/button_pages.dart';
+import 'package:flutter_practise/form_validation.dart';
 import 'package:flutter_practise/home.dart';
 import 'package:flutter_practise/contact_list.dart';
 import 'package:flutter_practise/local_json_listview.dart';
 import 'package:flutter_practise/json_api.dart';
+import 'package:flutter_practise/shared_preferences.dart';
 
 void main() {
   runApp(
@@ -23,6 +25,25 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Brain Station'),
+        actions: <Widget>[
+          PopupMenuItem(
+            child: Icon(Icons.face),
+          ),
+          PopupMenuButton(
+              offset: Offset(0, 55),
+              elevation: 10,
+              onSelected: (val) {
+                print(val);
+              },
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(value: 'about_us', child: Text("about us")),
+                  PopupMenuItem(value: 'settings', child: Text("settings")),
+                  PopupMenuItem(value: 'pop', child: Text("pop Up")),
+                  PopupMenuItem(value: 'rate_us', child: Text("rate us")),
+                ];
+              })
+        ],
         backgroundColor: Colors.red,
       ),
       body: ListView(
@@ -187,7 +208,53 @@ class Homepage extends StatelessWidget {
                       _longtext),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        child: RaisedButton(
+                            child: Text("Form Validation"),
+                            color: Colors.redAccent,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => form_validation()));
+                            }),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        child: RaisedButton(
+                            child: Text("Json APi data"),
+                            color: Colors.redAccent,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => jsonapii()));
+                            }),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        child: RaisedButton(
+                            child: Text("Shared Pref"),
+                            color: Colors.redAccent,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => shared_preferences()));
+                            }),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Container(
                   child: Text(_longtext +
@@ -203,9 +270,6 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Row(
               children: <Widget>[
-                SizedBox(
-                  width: 30,
-                ),
                 Container(
                   child: RaisedButton(
                       child: Text("Local Json"),
@@ -217,7 +281,7 @@ class Homepage extends StatelessWidget {
                       }),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Container(
                   child: RaisedButton(
@@ -230,14 +294,17 @@ class Homepage extends StatelessWidget {
                       }),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Container(
                   child: RaisedButton(
-                      child: Text("Local Json"),
+                      child: Text("Shared Preferences"),
                       color: Colors.redAccent,
                       textColor: Colors.white,
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => shared_preferences()));
+                      }),
                 ),
               ],
             ),

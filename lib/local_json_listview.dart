@@ -34,7 +34,9 @@ class _j_listviewState extends State<j_listview> {
       var filterData = [];
 
       for (int i = 0; i < unfilterdata.length; i++) {
-        if (unfilterdata[i]['name'].contains(str)) {
+        String name = unfilterdata[i]['name'].toUpperCase();
+
+        if (name.contains(str.toUpperCase())) {
           filterData.add(unfilterdata[i]);
         }
         setState(() {
