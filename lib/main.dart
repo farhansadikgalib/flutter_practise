@@ -6,6 +6,7 @@ import 'package:flutter_practise/contact_list.dart';
 import 'package:flutter_practise/local_json_listview.dart';
 import 'package:flutter_practise/json_api.dart';
 import 'package:flutter_practise/shared_preferences.dart';
+import 'package:flutter_practise/url_launcher.dart';
 
 void main() {
   runApp(
@@ -229,12 +230,12 @@ class Homepage extends StatelessWidget {
                       ),
                       Container(
                         child: RaisedButton(
-                            child: Text("Json APi data"),
+                            child: Text("Url Launcher"),
                             color: Colors.redAccent,
                             textColor: Colors.white,
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => jsonapii()));
+                                  builder: (context) => Url_Launcher()));
                             }),
                       ),
                       SizedBox(
