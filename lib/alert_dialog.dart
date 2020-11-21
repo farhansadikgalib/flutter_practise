@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AlertDialog_Page extends StatefulWidget {
   @override
@@ -6,14 +7,57 @@ class AlertDialog_Page extends StatefulWidget {
 }
 
 class _AlertDialog_PageState extends State<AlertDialog_Page> {
+
+      showExitPopUp(){
+            return showDialog(
+                context: context,
+                builder: (context){
+                  return AlertDialog(
+                    title: Text("Confim"),
+                    content: Text("Do you wnant to exit this app"),
+                    actions: <Widget> [
+
+                      RaisedButton(
+                        child: Text("No"),
+                          color: Colors.lightGreen,
+                          onPressed: (){
+
+                          Navigator.of(context).pop();
+
+
+                      }),
+                      RaisedButton(
+                          child: Text("Yes"),
+                          color: Colors.redAccent,
+                          onPressed: (){
+                            SystemNavigator.pop();
+
+                          }),
+
+                    ],
+
+                  );
+                }
+
+            );
+
+        
+      }
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("alert dialog"),
-        backgroundColor: Colors.deepOrange,
-      ),
-      body: Column(
+    return WillPopScope( onWillPop: (){
+      print("back button pressed");
+      showExitPopUp();
+    },
+
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("alert dialog"),
+          backgroundColor: Colors.deepOrange,
+        ),
+        body: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
           children:<Widget> [
@@ -26,21 +70,21 @@ class _AlertDialog_PageState extends State<AlertDialog_Page> {
                 children: [
                   Container(
 
-                        child:
-                        RaisedButton(
-                            color: Colors.redAccent,
-                            child: Text("Show Alert Dialog"),
-                            onPressed: ()=>showAlertDialog(context)
+                    child:
+                    RaisedButton(
+                        color: Colors.redAccent,
+                        child: Text("Show Alert Dialog"),
+                        onPressed: ()=>showAlertDialog(context)
 
 
-                        )
+                    )
                     ,
 
                   ),
                 ],
               ),
             ),
-            
+
             SizedBox(height: 20,),
 
             Column(
@@ -63,7 +107,17 @@ class _AlertDialog_PageState extends State<AlertDialog_Page> {
           ],
 
 
+        ),
       ),
+
+
+
+
+
+
+
+
+
     );
   }
 }
