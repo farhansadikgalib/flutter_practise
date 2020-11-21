@@ -104,6 +104,23 @@ class _form_validationState extends State<form_validation> {
                       this.address = value;
                     },
                   ),
+                  DropdownButtonFormField(
+                    onChanged: (val) {
+                      print(val);
+                      setState(() {});
+                    },
+                    hint: Text("Select Your Gender"),
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("Male"),
+                        value: 'male',
+                      ),
+                      DropdownMenuItem(
+                        child: Text("Female"),
+                        value: 'female',
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     height: 20,
                   ),

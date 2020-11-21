@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practise/alert_dialog.dart';
 import 'package:flutter_practise/button_pages.dart';
 import 'package:flutter_practise/form_validation.dart';
 import 'package:flutter_practise/home.dart';
@@ -243,12 +244,12 @@ class Homepage extends StatelessWidget {
                       ),
                       Container(
                         child: RaisedButton(
-                            child: Text("Shared Pref"),
+                            child: Text("Alert Dialog"),
                             color: Colors.redAccent,
                             textColor: Colors.white,
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => shared_preferences()));
+                                  builder: (context) => AlertDialog_Page()));
                             }),
                       ),
                     ],
